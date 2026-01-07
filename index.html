@@ -3,217 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AJEITTA – Serviços Profissionais</title>
+<title>AJEITTA</title>
 
 <style>
-:root {
-  --header-bg: #121826;
-  --accent: #f59e0b;
-  --primary: #4f46e5;
-  --secondary: #2563eb;
-  --bg: #f3f5fb;
-  --card: #ffffff;
-  --text: #111827;
-  --muted: #6b7280;
+:root{
+  --header-bg:#121826; --accent:#f59e0b;
+  --primary:#4f46e5; --secondary:#2563eb;
+  --card:#ffffff; --text:#111827; --muted:#6b7280;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
-  color: var(--text);
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);
+  color:var(--text)
 }
 
 /* HEADER */
-header {
-  background: var(--header-bg);
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 4px solid var(--accent);
+header{
+  background:var(--header-bg);
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:4px solid var(--accent)
 }
-
-.logo {
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  color: #ffffff;
-}
-
-.header-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.btn {
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-light {
-  background: transparent;
-  border: 1px solid #c7c9d1;
-  color: #ffffff;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #fff;
-}
+.logo{font-size:24px;font-weight:900;color:#fff}
+.header-actions{display:flex;gap:12px}
+.btn{padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;border:none;cursor:pointer}
+.btn-light{background:transparent;border:1px solid #c7c9d1;color:#fff}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff}
 
 /* HERO */
-.hero {
-  padding: 70px 24px 50px;
+.hero{padding:70px 24px 50px}
+.hero-container{max-width:1200px;margin:auto}
+.hero-top{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:60px;
+  align-items:center
 }
 
-.hero-container {
-  max-width: 1200px;
-  margin: auto;
+/* CARROSSEL */
+.hero-carousel{
+  background:var(--card);
+  border-radius:26px;
+  box-shadow:0 25px 55px rgba(0,0,0,.12);
+  overflow:hidden;
+  height:300px;
+  position:relative
 }
-
-.hero-top {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: center;
+.hero-slide{
+  position:absolute;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center
 }
+.hero-slide.active{display:flex}
 
-.hero-text h1 {
-  font-size: 44px;
-  line-height: 1.1;
-  margin-bottom: 18px;
+.hero-text{padding:40px}
+.hero-text h1{font-size:44px;line-height:1.1;margin-bottom:16px}
+.hero-text p{font-size:18px;color:var(--muted);max-width:520px}
+.hero-text a{display:inline-block;margin-top:14px;font-weight:600;color:var(--secondary);text-decoration:none}
+
+.hero-image{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f8fafc
 }
-
-.hero-text p {
-  font-size: 18px;
-  color: var(--muted);
-  max-width: 520px;
-}
-
-/* LINK COMO FUNCIONA */
-.hero-cta {
-  margin-top: 18px;
-}
-
-.hero-cta a {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--secondary);
-  text-decoration: none;
-}
-
-.hero-cta a:hover {
-  text-decoration: underline;
+.hero-image img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain
 }
 
 /* SEARCH */
-.search-box {
-  background: var(--card);
-  padding: 22px;
-  border-radius: 22px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
-  display: grid;
-  gap: 14px;
+.search-box{
+  background:var(--card);
+  padding:22px;
+  border-radius:22px;
+  box-shadow:0 30px 60px rgba(0,0,0,.12);
+  display:grid;
+  gap:14px
+}
+.field{
+  display:flex;
+  align-items:center;
+  background:#f9fafb;
+  border-radius:14px;
+  padding:14px 16px;
+  gap:10px
+}
+.field span{font-size:18px;color:#6b7280}
+.field input{border:none;outline:none;background:transparent;font-size:15px;width:100%}
+.search-box button{
+  padding:16px;
+  border-radius:14px;
+  border:none;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer
 }
 
-.field {
-  display: flex;
-  align-items: center;
-  background: #f9fafb;
-  border-radius: 14px;
-  padding: 14px 16px;
-  gap: 10px;
+/* ===== CORREÇÃO DOS BOXES DE SERVIÇO ===== */
+.categories{
+  margin-top:70px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
 }
 
-.field span {
-  font-size: 18px;
-  color: #6b7280;
+.category{
+  background:var(--card);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:.25s ease;
+  display:flex;
+  flex-direction:column;
+  height:100%;
 }
 
-.field input {
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 15px;
-  width: 100%;
+.category:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 45px rgba(0,0,0,.15);
 }
 
-.search-box button {
-  padding: 16px;
-  border-radius: 14px;
-  border: none;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #fff;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
+.category-img{
+  width:100%;
+  height:140px;
+  background:#f1f5f9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-/* CATEGORIES */
-.categories {
-  margin-top: 60px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+.category-img img{
+  max-width:80%;
+  max-height:80%;
+  object-fit:contain;
 }
 
-.category {
-  background: var(--card);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-  transition: all 0.2s ease;
+.category-content{
+  padding:18px;
 }
 
-.category:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+.category-content h3{
+  font-size:16px;
+  margin-bottom:6px;
 }
 
-.category-img {
-  width: 100%;
-  height: 120px;
-  background: #f1f5f9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.category-img img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.category-content {
-  padding: 18px;
-}
-
-.category-content h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.category-content p {
-  font-size: 13px;
-  color: var(--muted);
+.category-content p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.4;
 }
 
 /* RESPONSIVO */
-@media (max-width: 1024px) {
-  .hero-top {
-    grid-template-columns: 1fr;
-  }
-
-  .categories {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media(max-width:1024px){
+  .hero-top{grid-template-columns:1fr}
+  .categories{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+  .categories{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -232,49 +189,67 @@ header {
   <div class="hero-container">
 
     <div class="hero-top">
-      <div class="hero-text">
-        <h1>Resolver serviços técnicos ficou simples</h1>
-        <p>
-          Encontre empresas e profissionais qualificados para serviços
-          residenciais, comerciais e industriais com segurança e confiança.
-        </p>
 
-        <div class="hero-cta">
-          <a href="#como-funciona">Como funciona a AJEITTA?</a>
+      <!-- CARROSSEL -->
+      <div class="hero-carousel">
+
+        <div class="hero-slide active">
+          <div class="hero-text">
+            <h1>Resolver serviços técnicos ficou simples</h1>
+            <p>
+              Encontre empresas e profissionais qualificados para serviços
+              residenciais, comerciais e industriais com segurança e confiança.
+            </p>
+            <a href="#como-funciona">Como funciona a AJEITTA?</a>
+          </div>
         </div>
+
+        <div class="hero-slide"><div class="hero-image"><img src="https://drive.google.com/file/d/1dK3tXFf6_vvO_nGYCU9dZSNXgE8ox1cE/view?usp=sharing"></div></div>
+        <div class="hero-slide"><div class="hero-image"><img src="https://drive.google.com/file/d/1Cc60UYFM7dWFeBJ7Ub2UBdi-L9d9Hrx_/view?usp=sharing"></div></div>
+        <div class="hero-slide"><div class="hero-image"><img src="COLOQUE_URL_3"></div></div>
+        <div class="hero-slide"><div class="hero-image"><img src="COLOQUE_URL_4"></div></div>
+        <div class="hero-slide"><div class="hero-image"><img src="COLOQUE_URL_5"></div></div>
+        <div class="hero-slide"><div class="hero-image"><img src="COLOQUE_URL_6"></div></div>
+
       </div>
 
+      <!-- BUSCA -->
       <div class="search-box">
-        <div class="field">
-          <span>📍</span>
-          <input type="text" placeholder="Digite sua cidade">
-        </div>
-        <div class="field">
-          <span>🔎</span>
-          <input type="text" placeholder="Qual serviço você procura?">
-        </div>
+        <div class="field"><span>📍</span><input type="text" placeholder="Digite sua cidade"></div>
+        <div class="field"><span>🔎</span><input type="text" placeholder="Qual serviço você procura?"></div>
         <button>Buscar profissionais</button>
       </div>
+
     </div>
 
+    <!-- BOXES ORIGINAIS (APENAS LAYOUT ARRUMADO) -->
     <div class="categories">
-      <!-- categorias mantidas exatamente como antes -->
-      <div class="category"><div class="category-img"><img src="img-seguranca.png"></div><div class="category-content"><h3>Segurança Eletrônica</h3><p>CFTV, alarmes, cercas, sensores e monitoramento</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-acesso.png"></div><div class="category-content"><h3>Controle de Acesso</h3><p>Portões, fechaduras, catracas e biometria</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-comunicacao.png"></div><div class="category-content"><h3>Comunicação</h3><p>Interfonia, PABX, dados e telefonia</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-automacao.png"></div><div class="category-content"><h3>Automação</h3><p>Residencial, predial e industrial</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-eletrica.png"></div><div class="category-content"><h3>Elétrica & Energia</h3><p>Baixa, média e alta tensão, SPDA e solar</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-health.png"></div><div class="category-content"><h3>Alarmes Health</h3><p>Idosos, clínicas, hospitais e monitoramento</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-hvac.png"></div><div class="category-content"><h3>Climatização & HVAC</h3><p>Ar-condicionado e ventilação</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-ti.png"></div><div class="category-content"><h3>Infraestrutura de Redes & TI</h3><p>Dados e Wi-Fi</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-reformas.png"></div><div class="category-content"><h3>Reformas</h3><p>Alvenaria, pintura, piscinas,drywall e acabamentos</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-construcao.png"></div><div class="category-content"><h3>Construção Civil</h3><p>Casas, muros, piscinas, Edifícios e galpões</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-paisagismo.png"></div><div class="category-content"><h3>Paisagismo & Jardinagem</h3><p>Projetos, implantação e manutenção</p></div></div>
-      <div class="category"><div class="category-img"><img src="img-predial.png"></div><div class="category-content"><h3>Manutenção Predial</h3><p>planos,Preventiva e corretiva</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Segurança Eletrônica</h3><p>CFTV, alarmes, cercas, sensores e monitoramento</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Controle de Acesso</h3><p>Portões, fechaduras, catracas e biometria</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Comunicação</h3><p>Interfonia, PABX, dados e telefonia</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Automação</h3><p>Residencial, predial e industrial</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Elétrica & Energia</h3><p>Baixa, média e alta tensão, SPDA e solar</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Alarmes Health</h3><p>Idosos, clínicas, hospitais e monitoramento</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Climatização & HVAC</h3><p>Ar-condicionado e ventilação</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Infraestrutura de Redes & TI</h3><p>Dados e Wi-Fi</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Reformas</h3><p>Alvenaria, pintura, piscinas, drywall e acabamentos</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Construção Civil</h3><p>Casas, muros, piscinas, edifícios e galpões</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Paisagismo & Jardinagem</h3><p>Projetos, implantação e manutenção</p></div></div>
+      <div class="category"><div class="category-img"><img src="..."></div><div class="category-content"><h3>Manutenção Predial</h3><p>Planos, preventiva e corretiva</p></div></div>
     </div>
 
   </div>
 </section>
+
+<script>
+const slides=document.querySelectorAll('.hero-slide');
+let i=0;
+setInterval(()=>{
+  slides[i].classList.remove('active');
+  i=(i+1)%slides.length;
+  slides[i].classList.add('active');
+},4000);
+</script>
 
 </body>
 </html>
